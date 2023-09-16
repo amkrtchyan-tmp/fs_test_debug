@@ -39,7 +39,7 @@ class User(db.Model, UserMixin):
     roles = db.relationship('Role', secondary='auth_roles_users', backref=db.backref('auth_user', lazy='dynamic'))
 
     def __repr__(self):
-        return f'<{__class__.__name__} {self.id} {self.email=}>'
+        return f'<{__class__.__name__} {self.id} {self.email=} {self.fs_uniquifier=}>'
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
